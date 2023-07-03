@@ -1,5 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Main from "./Main";
+import Test from "./Test";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true,
+    },
+  },
+});
 
 const App = () => {
   Object.entries({});
@@ -8,20 +19,24 @@ const App = () => {
   };
 
   k?.();
+  const kk: never = () => {};
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div>app</div>
-            </>
-          }
-        />
-        <Route path="/hi" element={<div>hi</div>} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<div>loading...</div>}>
+                <Main />
+                <Test />
+              </Suspense>
+            }
+          />
+          <Route path="/hi" element={<div>hi</div>} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
