@@ -20,7 +20,7 @@ const Main = () => {
         },
       }}
     >
-      <TTT>hihi</TTT>
+      <TTT>hihi2</TTT>
       <img src={Ic} alt="test" />
       {/* <Ic /> */}
       <input />
