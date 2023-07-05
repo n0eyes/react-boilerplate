@@ -9,5 +9,8 @@ module.exports = merge(common, {
     open: true,
     historyApiFallback: true,
     port: 3000,
+    client: {
+      overlay: true,
+    },
   },
 });

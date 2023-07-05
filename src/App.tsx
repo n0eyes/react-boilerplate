@@ -19,7 +19,7 @@ const App = () => {
   };
 
   k?.();
-  const kk: never = () => {};
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>

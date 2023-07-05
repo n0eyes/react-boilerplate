@@ -100,7 +100,7 @@ export const ButtonWithHooks = () => {
   // Sets the hooks for both the label and primary props
   const [value, setValue] = useState("Secondary");
   const [isPrimary, setIsPrimary] = useState(false);
-  const k: string = () => {};
+
   // Sets a click handler to change the label's value
   const handleOnChange = () => {
     if (!isPrimary) {

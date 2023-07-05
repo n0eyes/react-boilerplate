@@ -8,5 +8,5 @@
     ],
     "@babel/preset-typescript"
   ],
-  "plugins": ["@emotion"]
+  "plugins": ["@emotion", "babel-plugin-styled-components"]
 }

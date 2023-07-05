@@ -6,7 +6,7 @@
     "type-check:watch": "yarn type-check --watch",
     "start": "node scripts/start.js",
     "build": "yarn type-check & cross-env NODE_ENV=production webpack --progress --config webpack.prod.js",
-    "dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
+    "dev": "yarn type-check:watch & cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
     "storybook": "storybook dev -p 6006"
   },
   "devDependencies": {
@@ -37,6 +37,7 @@
     "@typescript-eslint/parser": "latest",
     "@yarnpkg/sdks": "^3.0.0-rc.47",
     "babel-loader": "^9.1.2",
+    "babel-plugin-styled-components": "^2.1.4",
     "babel-preset-react-app": "^10.0.1",
     "cross-env": "^7.0.3",
     "esbuild-loader": "^3.0.1",
