@@ -74,6 +74,7 @@ module.exports = {
     minimize: isProduction,
     minimizer: isProduction
       ? [
+          /**@todo devtool 변경해야함 */
           new TerserPlugin({
             terserOptions: {
               compress: {
