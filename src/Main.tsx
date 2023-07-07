@@ -10,7 +10,8 @@ const getTodos = () => {
 
 const Main = () => {
   const { data } = useQuery({ queryKey: ["todos"], queryFn: getTodos });
-
+  console.log(data);
+  // const K: string = 3;
   return (
     <div
       css={{
@@ -33,3 +34,11 @@ export default Main;
 const TTT = styled.div`
   background-color: red;
 `;
+
+const TTT2 = styled.div`
+  background-color: red;
+`;
+
+const S = {
+  TTT,
+};

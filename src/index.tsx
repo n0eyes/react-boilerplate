@@ -38,8 +38,16 @@ main();
 // storybook -- ok
 // emotion or sc  -- ok
 // react-query -- ok
+// font - ok
+// image - ok
 
 // msw
 // zustand
 // jest, testing-library
-// css , image , font , file
+
+// 최적화
+// source-map
+// stats? overlay?
+// file?
+
+// svg as components - X
