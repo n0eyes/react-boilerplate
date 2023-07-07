@@ -60,6 +60,7 @@
     "react-router-dom": "^6.14.1",
     "storybook": "^7.0.24",
     "styled-components": "^6.0.1",
+    "terser-webpack-plugin": "^5.3.9",
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1",

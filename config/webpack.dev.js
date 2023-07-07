@@ -13,5 +13,5 @@ module.exports = merge(common, {
       overlay: false,
     },
   },
-  // stats: "none",
+  stats: "errors-only",
 });

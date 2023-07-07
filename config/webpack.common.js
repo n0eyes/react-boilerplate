@@ -4,6 +4,7 @@ const webpackUtils = require("./webpackUtils");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 const { DefinePlugin } = require("webpack");
@@ -25,6 +26,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
+  externals: webpackUtils.getExternals(libListToCopy),
   module: {
     rules: [
       {
@@ -68,7 +70,20 @@ module.exports = {
       patterns: webpackUtils.getLibsToCopyPattern(libListToCopy),
     }),
   ].filter(Boolean),
-  externals: webpackUtils.getExternals(libListToCopy),
+  optimization: {
+    minimize: isProduction,
+    minimizer: isProduction
+      ? [
+          new TerserPlugin({
+            terserOptions: {
+              compress: {
+                drop_console: true,
+              },
+            },
+          }),
+        ]
+      : [],
+  },
   watchOptions: {
     ignored: /node_modules/,
   },
