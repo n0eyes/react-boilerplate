@@ -1,6 +1,7 @@
 {
   "name": "pr-yarn-berry",
   "packageManager": "yarn@3.6.1",
+  "sideEffects": false,
   "scripts": {
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check --watch",

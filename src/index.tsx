@@ -45,7 +45,6 @@ main();
 // zustand
 // jest, testing-library
 
-// 최적화
 // source-map
 // stats? overlay?
 // file?

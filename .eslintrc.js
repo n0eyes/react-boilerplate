@@ -29,5 +29,5 @@ module.exports = {
     "react/no-unknown-property": ["error", { ignore: ["css"] }],
     "react/react-in-jsx-scope": "off",
   },
-  ignorePatterns: ["config", "dist", "public"],
+  ignorePatterns: ["config", "dist", "public", "*.config.*"],
 };

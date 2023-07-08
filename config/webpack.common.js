@@ -1,10 +1,9 @@
 const path = require("path");
 const paths = require("./paths");
 const webpackUtils = require("./webpackUtils");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 const { DefinePlugin } = require("webpack");
@@ -36,6 +35,9 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
+              /**@todo 과연..? */
+              // cacheCompression: false,
+              // cacheDirectory: true,
               plugins: [isDevelopment && "react-refresh/babel"].filter(Boolean),
             },
           },
@@ -43,6 +45,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        /**@todo asset vs resource */
         type: "asset/resource",
       },
       {
@@ -52,40 +55,23 @@ module.exports = {
     ],
   },
   plugins: [
-    isDevelopment && new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: paths.appHtml,
     }),
     ,
     new DefinePlugin({
-      PRODUCT_ENV: JSON.stringify("hi"),
+      PRODUCT_ENV: JSON.stringify("test"),
     }),
-    isDevelopment &&
-      new ForkTsCheckerWebpackPlugin({
-        typescript: {
-          configFile: paths.appTsConfig,
-        },
-      }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: paths.appTsConfig,
+      },
+    }),
     new CopyPlugin({
       patterns: webpackUtils.getLibsToCopyPattern(libListToCopy),
     }),
   ].filter(Boolean),
-  optimization: {
-    minimize: isProduction,
-    minimizer: isProduction
-      ? [
-          /**@todo devtool 변경해야함 */
-          new TerserPlugin({
-            terserOptions: {
-              compress: {
-                drop_console: true,
-              },
-            },
-          }),
-        ]
-      : [],
-  },
   watchOptions: {
-    ignored: /node_modules/,
+    ignored: [".yarn", "**/node_modules"],
   },
 };
