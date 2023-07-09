@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useState } from "react";
-
+import Ic from "../assets/img/test_ic.svg";
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -76,6 +76,7 @@ export const Button: React.FC<ButtonProps & Partial<Todo>> = ({
         <div
         // className="text-2xl text-3xl"
         >
+          <img src={Ic} alt="test" />
           test
         </div>
       </button>
