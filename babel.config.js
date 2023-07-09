@@ -23,6 +23,7 @@ module.exports = {
         pure: true,
       },
     ].filter(Boolean),
-    // isDevelopment && "react-refresh/babel",
-  ],
+    /**@todo storybook과 충돌 */
+    // isDevelopment && require.resolve("react-refresh/babel"),
+  ].filter(Boolean),
 };

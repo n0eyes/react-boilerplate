@@ -35,9 +35,9 @@ main();
 // react-query -- ok
 // font - ok
 // image - ok
+// msw - ok
 
-// msw
-// zustand
+// 절대 경로
 // jest, testing-library
 
 // source-map

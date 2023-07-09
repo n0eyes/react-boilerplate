@@ -23,8 +23,10 @@ const getClientEnvironment = (publicUrl) => {
     {
       NODE_ENV: process.env.NODE_ENV || "development",
       PUBLIC_URL: publicUrl,
+      FAST_REFRESH: true,
     }
   );
+
   const stringified = {
     "process.env": Object.keys(raw).reduce(
       (env, key) => ({ ...env, [key]: JSON.stringify(raw[key]) }),
