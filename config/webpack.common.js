@@ -1,6 +1,7 @@
 const path = require("path");
 const paths = require("./paths");
 const webpackUtils = require("./webpackUtils");
+const { getClientEnvironment } = require("./env");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
@@ -8,22 +9,26 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 const { DefinePlugin } = require("webpack");
 
+const PUBLIC_PATH = "http://localhost:3000/";
+
 const libListToCopy = ["axios"];
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 const isProduction = process.env.NODE_ENV === "production";
 
+const env = getClientEnvironment(PUBLIC_PATH);
+
 module.exports = {
   context: __dirname,
-  mode: "development",
   entry: paths.appIndex,
   output: {
     filename: "[name].bundle.[hash].js",
     path: paths.appOutput,
+    publicPath: PUBLIC_PATH,
     clean: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: paths.moduleFileExtensions.map((e) => `.${e}`),
   },
   externals: webpackUtils.getExternals(libListToCopy),
   module: {
@@ -38,7 +43,6 @@ module.exports = {
               /**@todo 과연..? */
               // cacheCompression: false,
               // cacheDirectory: true,
-              plugins: [isDevelopment && "react-refresh/babel"].filter(Boolean),
             },
           },
         ],
@@ -59,9 +63,7 @@ module.exports = {
       template: paths.appHtml,
     }),
     ,
-    new DefinePlugin({
-      PRODUCT_ENV: JSON.stringify("test"),
-    }),
+    new DefinePlugin(env.stringified),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: paths.appTsConfig,

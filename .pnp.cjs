@@ -62,6 +62,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-preset-react-app", "npm:10.0.1"],\
             ["copy-webpack-plugin", "virtual:f2974f05d65e4f9f4088956f5da9e9d629d08ffe5556e5784ab801cc65658e14c3abc299eb189c3a0bbc38155aa3aeed1e13aa4815e0a335cf738d894bbee50a#npm:11.0.0"],\
             ["cross-env", "npm:7.0.3"],\
+            ["dotenv", "npm:16.3.1"],\
+            ["dotenv-expand", "npm:10.0.0"],\
             ["esbuild-loader", "virtual:f2974f05d65e4f9f4088956f5da9e9d629d08ffe5556e5784ab801cc65658e14c3abc299eb189c3a0bbc38155aa3aeed1e13aa4815e0a335cf738d894bbee50a#npm:3.0.1"],\
             ["eslint", "npm:8.44.0"],\
             ["eslint-plugin-react", "virtual:f2974f05d65e4f9f4088956f5da9e9d629d08ffe5556e5784ab801cc65658e14c3abc299eb189c3a0bbc38155aa3aeed1e13aa4815e0a335cf738d894bbee50a#npm:7.32.2"],\
@@ -17216,6 +17218,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-preset-react-app", "npm:10.0.1"],\
             ["copy-webpack-plugin", "virtual:f2974f05d65e4f9f4088956f5da9e9d629d08ffe5556e5784ab801cc65658e14c3abc299eb189c3a0bbc38155aa3aeed1e13aa4815e0a335cf738d894bbee50a#npm:11.0.0"],\
             ["cross-env", "npm:7.0.3"],\
+            ["dotenv", "npm:16.3.1"],\
+            ["dotenv-expand", "npm:10.0.0"],\
             ["esbuild-loader", "virtual:f2974f05d65e4f9f4088956f5da9e9d629d08ffe5556e5784ab801cc65658e14c3abc299eb189c3a0bbc38155aa3aeed1e13aa4815e0a335cf738d894bbee50a#npm:3.0.1"],\
             ["eslint", "npm:8.44.0"],\
             ["eslint-plugin-react", "virtual:f2974f05d65e4f9f4088956f5da9e9d629d08ffe5556e5784ab801cc65658e14c3abc299eb189c3a0bbc38155aa3aeed1e13aa4815e0a335cf738d894bbee50a#npm:7.32.2"],\

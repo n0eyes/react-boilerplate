@@ -22,6 +22,7 @@ module.exports = {
         transpileTemplateLiterals: true,
         pure: true,
       },
+      isDevelopment && "react-refresh/babel",
     ].filter(Boolean),
   ],
 };

@@ -39,5 +39,7 @@ module.exports = {
   appIndex: resolveModule(resolveApp, "src/index"),
   appOutput: resolveApp("dist"),
   appTsConfig: resolveApp("tsconfig.json"),
+  dotenv: resolveApp(".env"),
+  moduleFileExtensions,
   resolveLib,
 };
