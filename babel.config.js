@@ -24,6 +24,6 @@ module.exports = {
       },
     ].filter(Boolean),
     /**@todo storybook과 충돌 */
-    // isDevelopment && require.resolve("react-refresh/babel"),
+    isDevelopment && require.resolve("react-refresh/babel"),
   ].filter(Boolean),
 };

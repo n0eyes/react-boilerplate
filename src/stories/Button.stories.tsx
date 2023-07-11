@@ -91,7 +91,7 @@ export const Primary: Story = {
     primary: true,
   },
   // name: 'I am the primary',
-  render: () => <Button label="hi6" />,
+  render: () => <Button label="hu5" />,
 };
 
 export const Secondary: Story = {

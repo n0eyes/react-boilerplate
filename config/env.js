@@ -23,7 +23,6 @@ const getClientEnvironment = (publicUrl) => {
     {
       NODE_ENV: process.env.NODE_ENV || "development",
       PUBLIC_URL: publicUrl,
-      FAST_REFRESH: true,
     }
   );
 

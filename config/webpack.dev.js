@@ -8,10 +8,6 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "eval-cheap-module-source-map",
   devServer: {
-    // static: {
-    //   directory: path.join(__dirname, "public"),
-    //   publicPath: "/public",
-    // },
     open: true,
     historyApiFallback: true,
     port: 3000,
