@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button, ButtonWithHooks } from "./Button";
+
+import { within, userEvent } from "@storybook/testing-library";
+
+import { expect } from "@storybook/jest";
+
 import React from "react";
 
 /**@todo Global args */
@@ -92,6 +97,20 @@ export const Primary: Story = {
   },
   // name: 'I am the primary',
   render: () => <Button label="hu5" />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // 👇 Simulate interactions with the component
+    await userEvent.type(canvas.getByTestId("email"), "email@provider.com");
+
+    // await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
+
+    // See https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args to learn how to setup logging in the Actions panel
+    // await userEvent.click(canvas.getByRole('button'));
+
+    // 👇 Assert DOM structure
+    await expect(canvas.getByTestId("email")).toHaveValue("email@provider.com");
+  },
 };
 
 export const Secondary: Story = {

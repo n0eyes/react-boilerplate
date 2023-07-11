@@ -11,7 +11,7 @@ const getTodos = () => {
 const Main = () => {
   const { data } = useQuery({ queryKey: ["todos"], queryFn: getTodos });
   console.log(data);
-  // const K: string = 3;
+
   return (
     <div
       css={{

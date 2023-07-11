@@ -22,7 +22,7 @@ module.exports = {
   context: __dirname,
   entry: paths.appIndex,
   output: {
-    filename: "[name].bundle.[hash].js",
+    filename: "[name].[chunkhash].js",
     path: paths.appOutput,
     publicPath: PUBLIC_PATH,
     clean: true,
@@ -62,7 +62,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: paths.appHtml,
     }),
-    ,
     new DefinePlugin(env.stringified),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
