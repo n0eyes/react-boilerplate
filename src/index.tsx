@@ -1,9 +1,9 @@
-import App from "./App";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { worker } from "./mocks/worker";
+import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {worker} from './mocks/worker';
 
-declare const PRODUCT_ENV: "local" | "production" | "development" | '"hi"';
+declare const PRODUCT_ENV: 'local' | 'production' | 'development' | '"hi"';
 
 async function main() {
   // if (process.env.NODE_ENV === "development") {
@@ -14,9 +14,7 @@ async function main() {
   //   });
   // }
 
-  const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
-  );
+  const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
   console.log(process.env.LOCAL);
   console.log(process.env.DEV);
@@ -24,7 +22,7 @@ async function main() {
   root.render(
     <React.StrictMode>
       <App />
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 }
 
@@ -36,9 +34,10 @@ main();
 // font - ok
 // image - ok
 // msw - ok
+// jest, testing-library - ok
 
 // 절대 경로 - gogo
-// jest, testing-library
+// sc-snippets
 
 // source-map
 // stats? overlay?
